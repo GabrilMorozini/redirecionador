@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <a class="btn btn-success my-4" href="/add"><i class="bi-s"></i><b>ADICIONAR NOVO LINK</b></a>
+
+        <%for(let i=0; i<links.length; i++) {%>
+            <div class="card p-3 mb-3" id="<%=links[i]._id%>">
+                <form class="d-flex align-items-center justify-content-between" method="POST" action="/?_method=DELETE">
+                    <div class="d-flex flex-column">
+                        <h2>
+                            <%=links[i].title%>
+                        </h2>
+                        <div>
+                            <%=links[i].description%>
+                        </div>
+                        <div class="text-muted">
+                            <%=links[i].url%>
+                        </div>
+                        <div class="text-info">
+                          <i class="bi-bar-chart-line-fill"></i>  Clicks: <%=links[i].click%>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <input name="id" value="<%=links[i]._id%>" hidden>
+                        <a class="btn btn-info mb-1" href="/edit/<%=links[i]._id%>"><b>EDITAR</b></a>
+                        <button class="btn btn-danger" type="submit"><b>EXCLUIR</b></button>
+                    </div>
+                </form>
+            </div>
+            <%}%>
+    </div>
+</body>
+
+</html>

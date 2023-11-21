@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container w-50">
+        <h4 class="text-center mt-3"><b>NOVO LINK</b></h4>
+        <form class="d-flex flex-column " action="/" method="POST">
+            <input class="mb-2" type="text" name="title" placeholder="Título" value="<%=body.title%>" required>
+            <input class="mb-2" type="text" name="description" placeholder="Descrição" value="<%=body.description%>">
+            <input class="mb-4" type="text" name="url" placeholder="URL" value="<%=body.url%>" required>
+            <button class="btn btn-primary mb-2"><b>ADICIONAR</b></button>
+        </form>
+        <a class="btn btn-danger w-100" href="/"><b>CANCELAR</b></a>
+        <%if(error){%>
+            <div class="alert alert-danger mt-3">
+                <strong>Error: </strong>
+                Os campos TITLE e URL devem ser preenchidos!
+            </div>
+            <%}%>
+    </div>
+</body>
+
+</html>
